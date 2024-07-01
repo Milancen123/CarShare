@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Signup</title>
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        body {
+    font-family: 'Montserrat', sans-serif;
+    background: linear-gradient(135deg, #4A4A4A, #00A896);
+    color: #4A4A4A;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+}
+
+.signup-container {
+    width: 400px;
+    padding: 20px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    border-radius: 10px;
+    background-color: #FFFFFF;
+}
+
+.tab {
+    display: flex;
+    justify-content: space-around;
+    margin-bottom: 20px;
+    border-bottom: 2px solid #F5F5F5;
+}
+
+.tab button {
+    background-color: transparent;
+    color: #4A4A4A;
+    padding: 15px 20px;
+    border: none;
+    cursor: pointer;
+    font-size: 16px;
+    font-weight: 500;
+    transition: background-color 0.3s, color 0.3s;
+    border-bottom: 2px solid transparent;
+}
+
+.tab button:hover {
+    background-color: #f1f1f1;
+}
+
+.tab button.active {
+    color: #00A896;
+    border-bottom: 2px solid #00A896;
+}
+
+.tabcontent {
+    display: none;
+}
+
+.tabcontent.active {
+    display: block;
+}
+
+.signup-title {
+    text-align: center;
+    margin-bottom: 20px;
+    color: #4A4A4A;
+}
+
+.input-group {
+    margin-bottom: 15px;
+}
+
+.input-group label {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: 500;
+    color: #4A4A4A;
+}
+
+.input-group input {
+    width: 95%;
+    padding: 10px;
+    border: 1px solid #F5F5F5;
+    border-radius: 5px;
+    font-size: 16px;
+    color: #4A4A4A;
+    transition: border-color 0.3s;
+}
+
+.input-group input:focus {
+    border-color: #00A896;
+    outline: none;
+}
+.btn-primary, .btn-secondary {
+    width: 100%;
+    padding: 15px;
+    font-size: 16px;
+    font-weight: 700;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-top: 10px;
+}
+.btn-primary {
+    background-color: #00A896;
+    color: #FFFFFF;
+}
+
+.btn-primary:hover {
+    background-color: #007F6A;
+}
+
+.btn-secondary {
+    background-color: #FF6F59;
+    color: #FFFFFF;
+}
+
+.btn-secondary:hover {
+    background-color: #CC5747;
+}
+
+    </style>
+</head>
+<body>
+    <div class="signup-container">
+        <div class="tab">
+            <button class="tablinks" onclick="openTab(event, 'Passenger')" id="defaultOpen">Passenger</button>
+            <button class="tablinks" onclick="openTab(event, 'Driver')">Driver</button>
+        </div>
+
+        <div id="Passenger" class="tabcontent">
+            <h1 class="signup-title">Login as a Passenger</h1>
+            <form class="signup-form" action="/v1/passenger/login" method="POST">
+                <div class="input-group">
+                    <label for="passenger-email">Email</label>
+                    <input type="email" id="passenger-email" name="username" required>
+                </div>
+                <div class="input-group">
+                    <label for="passenger-password">Password</label>
+                    <input type="password" id="passenger-password" name="password" required>
+                </div>
+                <button type="submit" class="btn-primary">Login</button>
+                <button type="button" class="btn-secondary">SignUp</button>
+            </form>
+        </div>
+
+        <div id="Driver" class="tabcontent">
+            <h1 class="signup-title">Login as a Driver</h1>
+            <form class="signup-form">
+                <div class="input-group">
+                    <label for="driver-email">Email</label>
+                    <input type="email" id="driver-email" name="email" required>
+                </div>
+                <div class="input-group">
+                    <label for="driver-password">Password</label>
+                    <input type="password" id="driver-password" name="password" required>
+                </div>
+                <button type="submit" class="btn-primary">Login</button>
+                <button type="button" class="btn-secondary">SignUp</button>
+            </form>
+        </div>
+    </div>
+    <script src="scripts.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+    document.getElementById('defaultOpen').click();
+});
+
+function openTab(evt, tabName) {
+    var i, tabcontent, tablinks;
+    tabcontent = document.getElementsByClassName('tabcontent');
+    for (i = 0; i < tabcontent.length; i++) {
+        tabcontent[i].style.display = 'none';
+    }
+    tablinks = document.getElementsByClassName('tablinks');
+    for (i = 0; i < tablinks.length; i++) {
+        tablinks[i].className = tablinks[i].className.replace(' active', '');
+    }
+    document.getElementById(tabName).style.display = 'block';
+    evt.currentTarget.className += ' active';
+}
+
+    </script>
+</body>
+</html>

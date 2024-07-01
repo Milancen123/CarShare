@@ -1,0 +1,662 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CarShare Navbar</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background-color: #f2f2f2;
+            /* Light Grey background for the whole page */
+            color: #2c3e50;
+            box-sizing: border-box;
+            /* Dark Grey text color */
+        }
+
+        .container {
+            display: flex;
+            flex-direction: column;
+            height: 100vh;
+        }
+
+        .navbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background-color: #3498db;
+            background-color: #00A896;
+            /* background: linear-gradient(135deg, #4A4A4A, #00A896); */
+            /* Bright Blue background for navbar */
+            color: white;
+            /* width:100vw; */
+            box-shadow: 1px 2px 0px rgba(0, 0, 0, 0.371);
+            box-sizing: border-box;
+        }
+
+        .navbar .logo {
+            display: flex;
+            align-items: center;
+        }
+
+        .navbar .logo img {
+            height: 50px;
+            border-radius: 50%;
+            margin-right: 10px;
+        }
+
+        .navbar .logo h1 {
+            margin: 0;
+            font-size: 24px;
+        }
+
+        .navbar .nav-links {
+            display: flex;
+            align-items: center;
+            margin-left: auto;
+            box-sizing: border-box;
+        }
+
+        .navbar .nav-links a {
+            color: white;
+            text-decoration: none;
+            padding: 20px;
+            height: 100%;
+            display: flex;
+            align-items: center;
+            margin: 0px;
+        }
+
+        .navbar .nav-links a:hover {
+            box-sizing: border-box;
+            background-color: #008678;
+            /* Dark Grey on hover */
+        }
+
+        .navbar .logout-profile {
+            display: flex;
+            align-items: center;
+        }
+
+        .navbar .logout-profile a {
+            font-weight: bold;
+            color: rgb(255, 21, 21);
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+
+            height: 50px;
+        }
+
+
+        .navbar .logout-profile img {
+            border-radius: 50%;
+            width: 50px;
+            height: auto;
+            margin-left: 10px;
+        }
+
+        .main-content {
+            flex: 1;
+            padding: 20px;
+            background-color: #ffffff;
+            /* White background for main content */
+        }
+
+        .first_main_section {
+            width: 80%;
+            /* 80% width */
+            margin-left: auto;
+            margin-right: auto;
+            /* Center the section */
+            /* White background for section */
+            /* border: 1px solid #bdc3c7; */
+            /* Grey border */
+            border-radius: 8px;
+            /* Rounded corners */
+            text-align: center;
+            /* Center the heading */
+        }
+
+        .first_main_section h1 {
+            color: #2a3e3c;
+            /* Bright Blue color */
+            margin-bottom: 20px;
+            /* Space between heading and form */
+        }
+
+        .trip_form {
+            display: flex;
+            flex-wrap: wrap;
+            /* Allow items to wrap if they exceed the container width */
+            /* Space between input groups */
+            justify-content: center;
+            /* Center items horizontally */
+        }
+
+        .trip_form form {
+            flex-direction: column;
+            box-shadow: 1px 2px 2px rgba(112, 112, 112, 0.293);
+            border-radius: 8px;
+            background-color: #ffffff;
+            padding-left: 5px;
+        }
+
+
+        .trip_form .input-group {
+            display: inline-flex;
+            /* Use inline-flex to keep them inline */
+            align-items: center;
+            border-radius: 8px;
+            overflow: hidden;
+            max-width: 300px;
+            /* Adjust the max-width to fit your design */
+        }
+
+        .trip_form .input-group input {
+            padding: 10px;
+            border: none;
+            font-size: 16px;
+            flex: 1;
+            /* Ensure each input takes up available space */
+
+            text-align: center;
+            width: 100%;
+            /* Ensure the input fills the available space */
+        }
+
+        .trip_form .input-group input:focus {
+            outline: none;
+            /* Remove outline on focus */
+        }
+
+        .trip_form button {
+            background-color: #2ecc71;
+            /* Green background */
+            color: #ffffff;
+            /* White text */
+            cursor: pointer;
+            border: none;
+            /* Remove border */
+            padding: 10px 20px;
+            font-size: 16px;
+            border-top-right-radius: 8px;
+            /* Rounded right corners for the button */
+            border-bottom-right-radius: 8px;
+        }
+
+        .trip_form button:hover {
+            background-color: #27ae60;
+            /* Darker Green on hover */
+        }
+
+        .trip_form button i {
+            margin-right: 5px;
+            /* Space between icon and text */
+        }
+
+
+
+
+
+
+
+
+        .second-main-section {
+            width: 80%;
+
+            margin: 0px auto;
+            padding: 20px;
+            border-radius: 8px;
+            text-align: center;
+            display: flex;
+            flex-direction: row;
+            flex-wrap: wrap;
+            gap: 3%;
+            align-content: center;
+            justify-content: center;
+            margin-bottom: 5%;
+        }
+
+        .driver_info img {
+            width: 50px;
+            height: auto;
+            border-radius: 50%;
+        }
+
+        .trip_section {
+            display: flex;
+            justify-content: space-between;
+            width: 45%;
+            align-items: flex-start;
+            flex-direction: column;
+            border-top: 1px solid #e0e0e0;
+            padding-top: 10px;
+            box-sizing: border-box;
+        }
+
+        .road_info {
+            position: relative;
+            display: flex;
+            width: 100%;
+            height: 75%;
+            flex-grow: 2;
+            justify-content: space-between;
+            align-items: flex-start;
+            padding-bottom: 10px;
+            font-weight: bold;
+        }
+
+        .price_info {
+            width: 40%;
+            display: flex;
+            flex-direction: column;
+            align-items: flex-end;
+            justify-content: flex-start;
+        }
+
+        .price_info p {
+            margin: 0;
+            /* Remove default margin */
+        }
+
+        .price_info #price_in_rsd {
+            font-size: 30px;
+            font-weight: bold;
+        }
+
+        .price_info #seats_avail {
+            margin-top: -5px;
+            /* Adjust as necessary for spacing */
+        }
+
+        .start_end_dest {
+            display: flex;
+            flex: 1;
+            align-items: flex-start;
+            justify-content: flex-start;
+
+        }
+
+        .start_end_dest .start,
+        .start_end_dest .end {
+            display: flex;
+            flex: 1;
+            flex-direction: column;
+            align-items: flex-start;
+        }
+
+        .start_end_dest p {
+            margin: 0;
+            /* Remove default margin */
+        }
+
+        .start_end_dest .start p,
+        .start_end_dest .end p {
+            color: rgb(0, 0, 0);
+        }
+
+        .driver_info {
+            display: flex;
+            width: 100%;
+            flex-grow: 1;
+            border-top: 1px solid rgb(194, 194, 194);
+            align-items: center;
+        }
+
+
+
+        .trip_section {
+            background-color: #ffffff;
+            box-shadow: 1px 1px 2px black;
+            padding: 20px 20px 0px 20px;
+            border-radius: 8px;
+        }
+
+
+        .arrow img {
+            width: 21%;
+            position: absolute;
+            left: 45px;
+            top: 6px;
+        }
+
+        .trip_section:hover {
+
+            border: 3px solid #3498db;
+            box-shadow: none;
+        }
+
+        .placeholder {
+            padding: 10px;
+            margin: 0px;
+            margin-bottom: 10px;
+        }
+
+        #placeholder {
+            margin-left: 15%;
+            font-weight: bold;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <div class="navbar">
+            <div class="logo">
+                <img src="logo.jpg" alt="Logo">
+                <h1>CarShare</h1>
+            </div>
+            <div class="nav-links">
+                <a href="home2">Pocetna</a>
+                <a href="rezervacije">Rezervacije</a>
+                <a href="#history">Prethodna putovanja</a>
+                <a href="settings">Podesavanja</a>
+            </div>
+            <div class="logout-profile">
+                <a href="#logout"><i class="fas fa-sign-out-alt"></i> Odjavi se</a>
+                <a href="profile_picture"><img src="profile_pic.png" alt="Profile Picture"></a>
+            </div>
+        </div>
+
+        <div class="placeholder">
+            <p id="placeholder">Danasnja putovanja:</p>
+        </div>
+        <div class="second-main-section" id="second-main-section">
+            <div class="trip_section">
+                <div class="road_info">
+                    <div class="start_end_dest" id="start_end_dest">
+                        <div class="start">
+                            <p class="start_time">16:30</p>
+                            <p class="start_point">Beograd</p>
+                        </div>
+                        <div class="end">
+                            <p class="start_time">19:30</p>
+                            <p class="start_point">Vranje</p>
+                        </div>
+                        <div class="arrow">
+                            <img src="Line 1.png">
+                        </div>
+                    </div>
+                    <div class="price_info">
+                        <p id="price_in_rsd">2.000 RSD</p>
+                        <p id="seats_avail">3 sedista</p>
+                    </div>
+                </div>
+                <div class="driver_info">
+                    <img id="driver_profile_pic" src="profile_pic.png">
+                    <p id="driver_profile_name">Srecko</p>
+                </div>
+            </div>
+
+            <div class="trip_section">
+                <div class="road_info">
+                    <div class="start_end_dest" id="start_end_dest">
+                        <div class="start">
+                            <p class="start_time">16:30</p>
+                            <p class="start_point">Beograd</p>
+                        </div>
+                        <div class="end">
+                            <p class="start_time">19:30</p>
+                            <p class="start_point">Vranje</p>
+                        </div>
+                        <div class="arrow">
+                            <img src="Line 1.png">
+                        </div>
+                    </div>
+                    <div class="price_info">
+                        <p id="price_in_rsd">2.000 RSD</p>
+                        <p id="seats_avail">3 sedista</p>
+                    </div>
+                </div>
+                <div class="driver_info">
+                    <img id="driver_profile_pic" src="profile_pic.png">
+                    <p id="driver_profile_name">Srecko</p>
+                </div>
+            </div>
+        </div>
+        <div class="placeholder">
+            <p id="placeholder">Putovanja u narednom periodu:</p>
+        </div>
+        <div class="second-main-section" id="second-main-section2">
+            <div class="trip_section">
+                <div class="road_info">
+                    <div class="start_end_dest" id="start_end_dest">
+                        <div class="start">
+                            <p class="start_time">16:30</p>
+                            <p class="start_point">Beograd</p>
+                        </div>
+                        <div class="end">
+                            <p class="start_time">19:30</p>
+                            <p class="start_point">Vranje</p>
+                        </div>
+                        <div class="arrow">
+                            <img src="Line 1.png">
+                        </div>
+                    </div>
+                    <div class="price_info">
+                        <p id="price_in_rsd">2.000 RSD</p>
+                        <p id="seats_avail">3 sedista</p>
+                    </div>
+                </div>
+                <div class="driver_info">
+                    <img id="driver_profile_pic" src="profile_pic.png">
+                    <p id="driver_profile_name">Srecko</p>
+                </div>
+            </div>
+
+            <div class="trip_section">
+                <div class="road_info">
+                    <div class="start_end_dest" id="start_end_dest">
+                        <div class="start">
+                            <p class="start_time">16:30</p>
+                            <p class="start_point">Beograd</p>
+                        </div>
+                        <div class="end">
+                            <p class="start_time">19:30</p>
+                            <p class="start_point">Vranje</p>
+                        </div>
+                        <div class="arrow">
+                            <img src="Line 1.png">
+                        </div>
+                    </div>
+                    <div class="price_info">
+                        <p id="price_in_rsd">2.000 RSD</p>
+                        <p id="seats_avail">3 sedista</p>
+                    </div>
+                </div>
+                <div class="driver_info">
+                    <img id="driver_profile_pic" src="profile_pic.png">
+                    <p id="driver_profile_name">Srecko</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function isToday(dateString) {
+            const date = new Date(dateString);
+            const today = new Date();
+            // Check if the date parts (year, month, day) are the same
+            return date.getUTCFullYear() === today.getUTCFullYear() &&
+                date.getUTCMonth() === today.getUTCMonth() &&
+                date.getUTCDate()+1 === today.getUTCDate();
+        }
+            function isFuture(dateString) {
+                const date = new Date(dateString);
+                const today = new Date();
+
+                // Set the time of today to midnight to compare only the date parts
+                today.setUTCHours(0, 0, 0, 0);
+
+                // Compare the date to today
+                return date > today;
+            }
+
+        document.addEventListener("DOMContentLoaded", async function () {
+            try {
+                const response = await fetch('/v1/passenger/rezervacijaLista');
+                const data = await response.json();
+                console.log(data);
+                localStorage.setItem("voznje", JSON.stringify(data));
+                const rideContainer = document.getElementById('second-main-section');
+                rideContainer.innerHTML = "";
+                const rideContainer2 = document.getElementById('second-main-section2');
+                rideContainer2.innerHTML = "";
+                data.forEach(ride => {
+                    // Parse start_time and estimated_time
+                    const [startHours, startMinutes] = ride.start_time.split(':').map(Number);
+                    const [estHours, estMinutes] = ride.estimated_time.split(':').map(Number);
+
+                    // Calculate end_time
+                    let endHours = startHours + estHours;
+                    let endMinutes = startMinutes + estMinutes;
+                    if (endMinutes >= 60) {
+                        endMinutes -= 60;
+                        endHours += 1;
+                    }
+                    if (endHours >= 24) {
+                        endHours -= 24;
+                    }
+
+                    const formattedStartTime = `${String(startHours).padStart(2, '0')}:${String(startMinutes).padStart(2, '0')}`;
+                    const formattedEndTime = `${String(endHours).padStart(2, '0')}:${String(endMinutes).padStart(2, '0')}`;
+
+                    // Create trip section
+                    const tripSection = document.createElement('div');
+                    tripSection.className = 'trip_section';
+                    tripSection.dataset.start_dest = ride.start_dest;
+                    tripSection.dataset.end_dest = ride.end_dest;
+                    tripSection.dataset.start_time = ride.start_time;
+                    tripSection.dataset.price = ride.price_in_cents;
+                    tripSection.dataset.num_seats = ride.num_seats;
+                    tripSection.dataset.driver_first_name = ride.first_name;
+                    tripSection.dataset.driver_last_name = ride.last_name;
+
+                    // Create road info section
+                    const roadInfo = document.createElement('div');
+                    roadInfo.className = 'road_info';
+
+                    // Create start_end_dest section
+                    const startEndDest = document.createElement('div');
+                    startEndDest.className = 'start_end_dest';
+                    startEndDest.id = 'start_end_dest';
+
+                    // Create start point
+                    const start = document.createElement('div');
+                    start.className = 'start';
+                    const startTime = document.createElement('p');
+                    startTime.className = 'start_time';
+                    startTime.textContent = formattedStartTime;
+                    const startPoint = document.createElement('p');
+                    startPoint.className = 'start_point';
+                    startPoint.textContent = ride.start_dest;
+                    start.appendChild(startTime);
+                    start.appendChild(startPoint);
+
+                    // Create end point
+                    const end = document.createElement('div');
+                    end.className = 'end';
+                    const endTime = document.createElement('p');
+                    endTime.className = 'start_time';
+                    endTime.textContent = formattedEndTime;
+                    const endPoint = document.createElement('p');
+                    endPoint.className = 'start_point';
+                    endPoint.textContent = ride.end_dest;
+                    end.appendChild(endTime);
+                    end.appendChild(endPoint);
+
+                    // Create arrow section
+                    const arrow = document.createElement('div');
+                    arrow.className = 'arrow';
+                    const arrowImg = document.createElement('img');
+                    arrowImg.src = 'Line 1.png';
+                    arrow.appendChild(arrowImg);
+
+                    startEndDest.appendChild(start);
+                    startEndDest.appendChild(end);
+                    startEndDest.appendChild(arrow);
+
+                    // Create price info section
+                    const priceInfo = document.createElement('div');
+                    priceInfo.className = 'price_info';
+                    const priceInRSD = document.createElement('p');
+                    priceInRSD.id = 'price_in_rsd';
+                    priceInRSD.textContent = `${((ride.price_in_cents / 100) * 117).toFixed(2)} RSD`;
+                    const seatsAvail = document.createElement('p');
+                    seatsAvail.id = 'seats_avail';
+                    seatsAvail.textContent = `${ride.num_seats} sedista`;
+                    priceInfo.appendChild(priceInRSD);
+                    priceInfo.appendChild(seatsAvail);
+
+                    roadInfo.appendChild(startEndDest);
+                    roadInfo.appendChild(priceInfo);
+
+                    // Create driver info section
+                    const driverInfo = document.createElement('div');
+                    driverInfo.className = 'driver_info';
+                    const driverProfilePic = document.createElement('img');
+                    driverProfilePic.id = 'driver_profile_pic';
+                    driverProfilePic.src = ride.acc_picture || 'profile_pic.png'; // Default picture if null
+                    const driverProfileName = document.createElement('p');
+                    driverProfileName.id = 'driver_profile_name';
+                    driverProfileName.textContent = `${ride.first_name} ${ride.last_name}`;
+                    driverInfo.appendChild(driverProfilePic);
+                    driverInfo.appendChild(driverProfileName);
+
+                    tripSection.appendChild(roadInfo);
+                    tripSection.appendChild(driverInfo);
+
+
+                    if(isToday(ride.date_of_depart)) {
+                        rideContainer.appendChild(tripSection);
+                    } else if (isFuture(ride.date_of_depart)){
+                        rideContainer2.appendChild(tripSection);
+                    }
+
+                    // Add click event listener on click i awnt to redirect it to next page
+                    tripSection.addEventListener('click', function () {
+                        const start_dest = this.dataset.start_dest;
+                        const end_dest = this.dataset.end_dest;
+                        const start_time = this.dataset.start_time;
+                        const price = this.dataset.price;
+                        const num_seats = this.dataset.num_seats;
+                        const driver_first_name = this.dataset.driver_first_name;
+                        const driver_last_name = this.dataset.driver_last_name;
+
+                        console.log('Extracted Data:', { start_dest, end_dest, start_time, price, num_seats, driver_first_name, driver_last_name });
+
+                        const rides = JSON.parse(localStorage.getItem("voznje"));
+                        console.log('Stored Rides:', rides);
+
+                        const matchedRide = rides.find(ride =>
+                            ride.start_dest === start_dest &&
+                            ride.end_dest === end_dest &&
+                            ride.start_time === start_time &&
+                            ride.price_in_cents == price &&
+                            ride.num_seats == num_seats &&
+                            ride.first_name === driver_first_name &&
+                            ride.last_name === driver_last_name
+                        );
+
+                        if (matchedRide) {
+                            console.log("Matched Ride ID:", matchedRide.id);
+                            window.location.href = "/v1/passenger/trip/" + matchedRide.id;
+                            // You can handle the matched ID here, like redirecting to a new page or displaying details.
+                        } else {
+                            console.log("No matching ride found.");
+                        }
+                    });
+                });
+
+            } catch (error) {
+                console.error('Error fetching ride data:', error);
+            }
+        });
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,474 @@
+<!-- <!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CarShare Navbar</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background-color: #f2f2f2;
+            /* Light Grey background for the whole page */
+            color: #2c3e50;
+            box-sizing: border-box;
+            /* Dark Grey text color */
+        }
+
+        .container {
+            display: flex;
+            flex-direction: column;
+            height: 100vh;
+        }
+
+        .navbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background-color: #3498db;
+            background-color: #00A896;
+            /* background: linear-gradient(135deg, #4A4A4A, #00A896); */
+            /* Bright Blue background for navbar */
+            color: white;
+            /* width:100vw; */
+            box-shadow: 1px 2px 0px rgba(0, 0, 0, 0.371);
+            box-sizing: border-box;
+        }
+
+        .navbar .logo {
+            display: flex;
+            align-items: center;
+        }
+
+        .navbar .logo img {
+            height: 50px;
+            border-radius: 50%;
+            margin-right: 10px;
+        }
+
+        .navbar .logo h1 {
+            margin: 0;
+            font-size: 24px;
+        }
+
+        .navbar .nav-links {
+            display: flex;
+            align-items: center;
+            margin-left: auto;
+            box-sizing: border-box;
+        }
+
+        .navbar .nav-links a {
+            color: white;
+            text-decoration: none;
+            padding: 20px;
+            height: 100%;
+            display: flex;
+            align-items: center;
+            margin: 0px;
+        }
+
+        .navbar .nav-links a:hover {
+            box-sizing: border-box;
+            background-color: #008678;
+            /* Dark Grey on hover */
+        }
+
+        .navbar .logout-profile {
+            display: flex;
+            align-items: center;
+        }
+
+        .navbar .logout-profile a {
+            font-weight: bold;
+            color: rgb(255, 21, 21);
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+
+            height: 50px;
+        }
+
+
+        .navbar .logout-profile img {
+            border-radius: 50%;
+            width: 50px;
+            height: auto;
+            margin-left: 10px;
+        }
+
+        .main_section{
+            width:30%;
+            background-color: white;
+            margin:0 auto;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 1px 1px 3px rgb(113, 113, 113);
+
+        }
+        .data{
+
+            text-align: center;
+        }
+
+        .trip-info{
+            display: flex;
+
+            flex-direction: row;
+        }
+        .trip-info .start_dest, .trip-info .end_dest{
+        }
+        .trip-info .start_dest{
+        }
+        .trip-info .end_dest{
+            margin-left: auto;
+        }
+        .driver-info{
+
+
+        }
+        .price{
+            display: flex;
+            flex-direction: row;
+            border-top:1px solid gray;
+            border-bottom: 1px solid gray;
+
+        }
+        .price h3{
+            display:block;
+        }
+        #cena{
+            margin-left: auto;
+            text-align: right;
+        }
+
+        .driver-info{
+            margin-top:2%;
+        }
+        .button{
+            display: flex;
+            width: auto;
+            justify-content: center;
+
+        }
+        .button button{
+            padding: 10px 20px;
+            border-radius: 12px;
+            background-color: #008678;
+            border:none;
+            color:white;
+            font-size: medium;
+            font-weight: bold;
+
+        }
+
+        .title{
+            margin: 0 auto;
+        }       
+
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <div class="navbar">
+            <div class="logo">
+                <img src="logo.jpg" alt="Logo">
+                <h1>CarShare</h1>
+            </div>
+            <div class="nav-links">
+                <a href="home2">Pocetna</a>
+                <a href="rezervacije">Rezervacije</a>
+                <a href="#history">Prethodna putovanja</a>
+                <a href="settings">Podesavanja</a>
+            </div>
+            <div class="logout-profile">
+                <a href="/v1/passenger/logout"><i class="fas fa-sign-out-alt"></i> Odjavi se</a>
+                <a href="profile_picture"><img src="/public/profile_pic.png" alt="Profile Picture"></a>
+            </div>
+        </div>
+        <div class="title">
+        <h1 id="Title">Rezervisite voznju</h1>
+    </div>
+        <div class="main_section">
+            <div class="data">
+                <h1>24-06-2024</h1>
+            </div>
+            <div class="trip-info">
+                <div class="start_dest">
+                    <h2>Beograd</h2>
+                    <h3>14:30</h3>
+                </div>
+                <div class="end_dest">
+                    <h2>Vranje</h2>
+                    <h3>17:00</h3>
+                </div>
+            </div>
+            <div class="price">
+                <h3>Cena za jednog putnika je:</h3>
+                <h3 id="cena">1500.00RSD</h3>
+            </div>
+            <div class="driver-info">
+                <img src="profile_pic.png">
+                <h1>Srecko</h1>
+            </div>
+            <div class="button">
+                <button>Rezervisite</button>
+            </div>
+        </div>
+      
+    </div>
+
+</body>
+
+</html> -->
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CarShare Navbar</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background-color: #f2f2f2;
+            /* Light Grey background for the whole page */
+            color: #2c3e50;
+            /* Dark Grey text color */
+            box-sizing: border-box;
+        }
+
+        .container {
+            display: flex;
+            flex-direction: column;
+            height: 100vh;
+        }
+
+        .navbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background-color: #3498db;
+            background-color: #00A896;
+            /* Bright Blue background for navbar */
+            color: white;
+            box-shadow: 1px 2px 0px rgba(0, 0, 0, 0.371);
+            box-sizing: border-box;
+        }
+
+        .navbar .logo {
+            display: flex;
+            align-items: center;
+        }
+
+        .navbar .logo img {
+            height: 50px;
+            border-radius: 50%;
+            margin-right: 10px;
+        }
+
+        .navbar .logo h1 {
+            margin: 0;
+            font-size: 24px;
+        }
+
+        .navbar .nav-links {
+            display: flex;
+            align-items: center;
+            margin-left: auto;
+            box-sizing: border-box;
+        }
+
+        .navbar .nav-links a {
+            color: white;
+            text-decoration: none;
+            padding: 20px;
+            height: 100%;
+            display: flex;
+            align-items: center;
+            margin: 0px;
+        }
+
+        .navbar .nav-links a:hover {
+            background-color: #008678;
+            /* Dark Grey on hover */
+        }
+
+        .navbar .logout-profile {
+            display: flex;
+            align-items: center;
+        }
+
+        .navbar .logout-profile a {
+            font-weight: bold;
+            color: rgb(255, 21, 21);
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            height: 50px;
+        }
+
+        .navbar .logout-profile img {
+            border-radius: 50%;
+            width: 50px;
+            height: auto;
+            margin-left: 10px;
+        }
+
+        .main_section {
+            width: 30%;
+            background-color: white;
+            margin: 0 auto;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 1px 1px 3px rgb(113, 113, 113);
+        }
+
+        .data {
+            text-align: center;
+        }
+
+        .trip-info {
+            display: flex;
+            flex-direction: row;
+        }
+
+        .trip-info .start_dest {}
+
+        .trip-info .end_dest {
+            margin-left: auto;
+        }
+
+        .driver-info {}
+
+        .price {
+            display: flex;
+            flex-direction: row;
+            border-top: 1px solid gray;
+            border-bottom: 1px solid gray;
+        }
+
+        .price h3 {
+            display: block;
+        }
+
+        #cena {
+            margin-left: auto;
+            text-align: right;
+        }
+
+        .driver-info {
+            margin-top: 2%;
+        }
+
+        .button {
+            display: flex;
+            width: auto;
+            justify-content: center;
+        }
+
+        .button button {
+            padding: 10px 20px;
+            border-radius: 12px;
+            background-color: #008678;
+            border: none;
+            color: white;
+            font-size: medium;
+            font-weight: bold;
+        }
+
+        .title {
+            margin: 0 auto;
+        }
+        #reserved{
+            color:red;
+            font-weight: bold;
+            border:1px solid red;
+            padding:10px 20px;
+            border-radius: 12px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <div class="navbar">
+            <div class="logo">
+                <img src="logo.jpg" alt="Logo">
+                <h1>CarShare</h1>
+            </div>
+            <div class="nav-links">
+                <a href="home2">Pocetna</a>
+                <a href="rezervacije">Rezervacije</a>
+                <a href="#history">Prethodna putovanja</a>
+                <a href="settings">Podesavanja</a>
+            </div>
+            <div class="logout-profile">
+                <a href="/v1/passenger/logout"><i class="fas fa-sign-out-alt"></i> Odjavi se</a>
+                <a href="profile_picture"><img src="/public/profile_pic.png" alt="Profile Picture"></a>
+            </div>
+        </div>
+        <div class="title">
+            <h1 id="Title">Rezervisite voznju</h1>
+        </div>
+        <div class="main_section">
+            <div class="data">
+                <h1><%= date_of_depart %></h1>
+            </div>
+            <div class="trip-info">
+                <div class="start_dest">
+                    <h2><%= start_dest %></h2>
+                    <h3><%= start_time %></h3>
+                </div>
+                <div class="end_dest">
+                    <h2><%= end_dest %></h2>
+                    <h3><%= end_time %></h3>
+                </div>
+            </div>
+            <div class="price">
+                <h3>Cena za jednog putnika je:</h3>
+                <h3 id="cena"><%= price %> RSD</h3>
+            </div>
+            <div class="driver-info">
+                <img src="<%= driver_acc_pic %>" alt="Driver Picture">
+                <h1><%= driver_first_name %> <%= driver_last_name %></h1>
+            </div>
+            <div class="button">
+                <% if (reserved) { %>
+                    <h3 id="reserved">Rezervisano</h3>
+                <% } else { %>
+                    <button id="btn" onclick="rezervisiPutovanje()">Rezervisite</button>
+                <% } %>
+            </div>
+        </div>
+    </div>
+    <script>
+        async function rezervisiPutovanje(){
+            try{
+                const response = await fetch(window.location.href, {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json'
+                    }
+                });
+                const btn = document.getElementById("btn");
+                const h3 = document.getElementById("reserved");
+                if(response.ok) {
+                    console.log("Succesfully updated");
+                    location.reload();
+                }
+
+            } catch(err){
+                console.log(err);
+            }
+        }
+    </script>
+</body>
+
+</html>
