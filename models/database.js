@@ -1,5 +1,5 @@
+// db.js
 const pg = require('pg');
-
 
 const pool = new pg.Pool({
     user: process.env.DB_USER,
@@ -9,7 +9,6 @@ const pool = new pg.Pool({
     port: process.env.DB_PORT
 });
 
-
 const pool2 = new pg.Pool({
     user: process.env.DB_USER,
     host: process.env.DB_HOST,
@@ -18,10 +17,4 @@ const pool2 = new pg.Pool({
     port: process.env.DB_PORT
 });
 
-
-module.exports = {
-    pool,
-    pool2
-}
-
-
+module.exports = pool;

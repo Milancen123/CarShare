@@ -1,4 +1,5 @@
 const pool = require('../models/database');
+const pool2 = require('../models/databaseAdmin');
 const ErrorResponse = require('../utils/errorResponse');
 const jwt = require('jsonwebtoken');
 
@@ -24,14 +25,14 @@ exports.register = async (req, res, next) => {
 
 
   exports.login = async(req, res, next) => {
-    const {email, password} = req.body;
+    const {email, password, tab} = req.body;
     if(!email || !password) {
       return next(new ErrorResponse("Please provide email or password", 400))
     }
 
 
     try{
-      const results = await pool.query('SELECT * FROM passenger WHERE email = $1', [email]);
+      const results = await pool.query(`SELECT * FROM ${tab} WHERE email = $1`, [email]);
       const user = results.rows[0];
       if(user.email == email) {
         const match = await comparePassword(password, user.password);
@@ -48,6 +49,33 @@ exports.register = async (req, res, next) => {
     }
   };
 
+
+  exports.loginAdmin = async(req, res, next) => {
+    const {email, password} = req.body;
+    console.log("OVO JE U BODY ZA loginADMIN:");
+    console.log(req.body);
+    if(!email || !password) {
+      return next(new ErrorResponse("Please provide email or password", 400))
+    }
+
+
+    try{
+      const results = await pool2.query('SELECT * FROM users WHERE email = $1', [email]);
+      const user = results.rows[0];
+      if(user.email == email) {
+        const match = await comparePassword(password, user.password);
+        console.log(email, password, user.password);
+        if(!match) {
+          return next(new ErrorResponse("Invalid credentials", 401))
+        }else{
+          sendToken(user, 200, res);
+        }
+      }
+
+    }catch(err){
+      next(err)
+    }
+  }; 
 
 
 
@@ -86,5 +114,11 @@ exports.register = async (req, res, next) => {
   const sendToken = (user, statusCode, res) => {
     const token = getSignedToken(user);
     res.status(statusCode).json({success:true, token});
+
+  }
+
+  const setToken = (user, statusCode, res) => {
+    const token = getSignedToken(user);
+    localStorage.setItem('authToken', token);
 
   }

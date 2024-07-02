@@ -141,7 +141,7 @@ exports.cancelRide = async(req, res, next) => {
 exports.getRidesByPassengerID = async(req, res, next) => {
     const userID = parseInt(req.user.id);
     try{
-        const response = await pool.query("SELECT ride.id,ride.date_of_depart, ride.start_dest, ride.end_dest, ride.start_time, ride.estimated_time, driver.first_name FROM reservations  INNER JOIN ride ON reservations.ride_id = ride.id INNER JOIN driver ON driver.id = ride.driver_id WHERE reservations.passenger_id = $1",
+        const response = await pool.query("SELECT ride.id,ride.date_of_depart, ride.start_dest, ride.end_dest, ride.start_time, ride.estimated_time, driver.first_name FROM reservations  INNER JOIN ride ON reservations.ride_id = ride.id INNER JOIN driver ON driver.id = ride.driver_id WHERE reservations.passenger_id = $1 ORDER BY ride.date_of_depart DESC",
             [userID]
         );
         console.log("OVO JE ODGORVOR bazepodataka");

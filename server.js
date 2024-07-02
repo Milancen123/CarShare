@@ -8,12 +8,23 @@ const errorHandler = require('./middleware/error');
 const cors = require('cors');
 const morgan = require('morgan');
 
+app.set("view engine", "ejs");
+app.use(express.static(__dirname + "/public"));
 
 app.use(express.json());
+app.use(express.urlencoded({ extended: true }));
 app.use(cors());
 app.use(morgan('dev'));
+
+app.use((req, res, next) => {
+    res.set('Cache-Control', 'no-store, no-cache, must-revalidate, private');
+    next();
+});
+
 app.use('/api/auth', require('./routes/auth'));
 app.use('/api/private', require('./routes/private'));
+app.use('/api/admin', require('./routes/admin'));
+app.use('/api/driver', require('./routes/driver'));
 
 
 

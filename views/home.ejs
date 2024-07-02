@@ -390,102 +390,106 @@
             opacity: 1;
         }
 
-
+        .stoposto {
+            width: 100%;
+            overflow: hidden;
+        }
     </style>
 </head>
 
 <body>
     <div class="overlay" id="overlay">
     </div>
-    <div class="sidebar">
-        <div class="top-section">
-            <img src="profile_pic.png" alt="User Avatar" width="80">
-            <h2>Kontrolni panel</h2>
-            <i class="fas fa-adjust toggle-theme" onclick="toggleTheme()"></i>
-        </div>
+    <div class="stoposto">
+        <div class="sidebar">
+            <div class="top-section">
+                <img src="/profile_pic.png" alt="User Avatar" width="80">
+                <h2>Kontrolni panel</h2>
+                <i class="fas fa-adjust toggle-theme" onclick="toggleTheme()"></i>
+            </div>
 
-        <div class="bottom-section">
-            <i class="fas fa-sign-out-alt logout" id="logout" onclick="logout()"></i>
-        </div>
-    </div>
-
-    <div class="main-content">
-        <div class="header">
-            <h1>Registracije</h1>
-            <div class="actions">
-                <button class="add-driver" onclick="dodajVozaca()">Dodaj novog vozaca</button>
+            <div class="bottom-section">
+                <i class="fas fa-sign-out-alt logout" id="logout" onclick="logout()"></i>
             </div>
         </div>
-        <div class="search-bar">
-            <div class="icon"><img src="search_icon.png" alt="Search Icon"></div>
-            <input type="text" placeholder="Pretrazi prijavljene korisnike" style="width:30%">
-            <div class="icons-right">
-                <div class="icon-container">
-                    <img src="plus_icon.png" alt="Plus Icon" id="dodajSve" onclick="dodajSve()">
-                    <span class="tooltip">Dodaj sve</span>
-                </div>
-                <div class="icon-container">
-                    <img src="trash_icon.png" alt="Trash Icon" id="obrisiSve" onclick="obrisiSve()">
-                    <span class="tooltip">Obriši sve</span>
+
+        <div class="main-content">
+            <div class="header">
+                <h1>Registracije</h1>
+                <div class="actions">
+                    <button class="add-driver" onclick="dodajVozaca()">Dodaj novog vozaca</button>
                 </div>
             </div>
+            <div class="search-bar">
+                <div class="icon"><img src="/search_icon.png" alt="Search Icon"></div>
+                <input type="text" placeholder="Pretrazi prijavljene korisnike" style="width:30%">
+                <div class="icons-right">
+                    <div class="icon-container">
+                        <img src="/plus_icon.png" alt="Plus Icon" id="dodajSve" onclick="dodajSve()">
+                        <span class="tooltip">Dodaj sve</span>
+                    </div>
+                    <div class="icon-container">
+                        <img src="/trash_icon.png" alt="Trash Icon" id="obrisiSve" onclick="obrisiSve()">
+                        <span class="tooltip">Obriši sve</span>
+                    </div>
+                </div>
+            </div>
+            <table class="driver-table" id="driver-list">
+                <thead>
+                    <tr>
+                        <th><input type="checkbox" id="select-all"></th>
+                        <th>Ime</th>
+                        <th>Prezime</th>
+                        <th>Model auta</th>
+                        <th>Email</th>
+                        <th>Lozinka</th>
+                        <th></th>
+                    </tr>
+                </thead>
+                <tbody>
+
+                </tbody>
+            </table>
         </div>
-        <table class="driver-table" id="driver-list">
-            <thead>
-                <tr>
-                    <th><input type="checkbox" id="select-all"></th>
-                    <th>Ime</th>
-                    <th>Prezime</th>
-                    <th>Model auta</th>
-                    <th>Email</th>
-                    <th>Lozinka</th>
-                    <th></th>
-                </tr>
-            </thead>
-            <tbody>
 
-            </tbody>
-        </table>
+        <div class="form-container" id="formaZaDodavanje">
+            <span class="close-icon" onclick="closeForm()">×</span>
+            <h2>Dodaj Novog Vozača</h2>
+            <form id="driverForm" action="/drivers" method="POST">
+                <div class="form-group">
+                    <label for="first_name">Ime</label>
+                    <input type="text" id="first_name" name="first_name" required>
+                </div>
+                <div class="form-group">
+                    <label for="last_name">Prezime</label>
+                    <input type="text" id="last_name" name="last_name" required>
+                </div>
+                <div class="form-group">
+                    <label for="car_model">Model Auta</label>
+                    <input type="text" id="car_model" name="car_model" required>
+                </div>
+                <div class="form-group">
+                    <label for="bank_acc">Broj Bankovnog Računa</label>
+                    <input type="text" id="bank_acc" name="bank_acc" required>
+                </div>
+                <div class="form-group">
+                    <label for="plate_number">Registarski Broj</label>
+                    <input type="text" id="plate_number" name="plate_number" required>
+                </div>
+                <div class="form-group">
+                    <label for="email">Email</label>
+                    <input type="email" id="email" name="email" required>
+                </div>
+                <div class="form-group">
+                    <label for="password">Šifra</label>
+                    <input type="password" id="password" name="password" required>
+                </div>
+                <div class="form-button">
+                    <button type="submit">Dodaj</button>
+                </div>
+            </form>
+        </div>
     </div>
-
-    <div class="form-container" id="formaZaDodavanje">
-        <span class="close-icon" onclick="closeForm()">×</span>
-        <h2>Dodaj Novog Vozača</h2>
-        <form id="driverForm" action="/drivers" method="POST">
-            <div class="form-group">
-                <label for="first_name">Ime</label>
-                <input type="text" id="first_name" name="first_name" required>
-            </div>
-            <div class="form-group">
-                <label for="last_name">Prezime</label>
-                <input type="text" id="last_name" name="last_name" required>
-            </div>
-            <div class="form-group">
-                <label for="car_model">Model Auta</label>
-                <input type="text" id="car_model" name="car_model" required>
-            </div>
-            <div class="form-group">
-                <label for="bank_acc">Broj Bankovnog Računa</label>
-                <input type="text" id="bank_acc" name="bank_acc" required>
-            </div>
-            <div class="form-group">
-                <label for="plate_number">Registarski Broj</label>
-                <input type="text" id="plate_number" name="plate_number" required>
-            </div>
-            <div class="form-group">
-                <label for="email">Email</label>
-                <input type="email" id="email" name="email" required>
-            </div>
-            <div class="form-group">
-                <label for="password">Šifra</label>
-                <input type="password" id="password" name="password" required>
-            </div>
-            <div class="form-button">
-                <button type="submit">Dodaj</button>
-            </div>
-        </form>
-    </div>
-
 
     <div id="error-message" class="error-message">An error occurred!</div>
     <script>
@@ -518,10 +522,19 @@
         // Fetch data from the server and load it into the table
         async function fetchData() {
             try {
-                const response = await fetch('/drivers');
+                const token = localStorage.getItem('authToken'); // Retrieve the token from localStorage
+                const response = await fetch('/api/admin/drivers', {
+                    method: 'GET', // You can specify the method, although GET is the default
+                    headers: {
+                        'Content-Type': 'application/json',
+                        'Authorization': `Bearer ${token}` // Add the Authorization header with the token
+                    }
+                });
+
                 if (!response.ok) {
                     throw new Error('Network response was not ok');
                 }
+
                 const data = await response.json();
                 let jsonString = JSON.stringify(data);
                 localStorage.setItem("registrations", jsonString);
@@ -530,6 +543,7 @@
                 console.error('Error fetching data:', error);
             }
         }
+
         function loadTableData(data) {
             const tableBody = document.getElementById('driver-list');
 
@@ -578,6 +592,7 @@
 
 
         function prihvatiSvePrijave(checkbox) {
+            const token = localStorage.getItem('authToken'); // Retrieve the token from localStorage
             const row = checkbox.closest('tr'); // Get the closest parent <tr> element
             const email = row.querySelector('td:nth-child(5)').textContent.trim(); // Get the email from the fifth <td> element (index 4)
             const dataToSend = {
@@ -585,10 +600,11 @@
             };
             if (email) {
                 //fetch
-                fetch('/drivers', {
+                fetch('/api/admin/drivers', {
                     method: 'PUT',
                     headers: {
-                        'Content-Type': 'application/json'
+                        'Content-Type': 'application/json',
+                        'Authorization': `Bearer ${token}` // Add the Authorization header with the token
                     },
                     body: JSON.stringify(dataToSend)
                 })
@@ -613,17 +629,21 @@
 
 
         function prihvatiPrijavu(event) {
+            const token = localStorage.getItem('authToken'); // Retrieve the token from localStorage
             const row = event.target.closest('tr'); // Get the closest parent <tr> element
             const email = row.querySelector('td:nth-child(5)').textContent.trim(); // Get the email from the fifth <td> element (index 4)
             const dataToSend = {
                 email: email
             };
+            console.log(dataToSend);
             if (email) {
                 //fetch
-                fetch('/drivers', {
+                fetch('/api/admin/drivers', {
                     method: 'PUT',
                     headers: {
-                        'Content-Type': 'application/json'
+                        'Content-Type': 'application/json',
+                        'Authorization': `Bearer ${token}` // Add the Authorization header with the token
+                    
                     },
                     body: JSON.stringify(dataToSend)
                 })
@@ -646,6 +666,7 @@
             // Perform other actions with the email variable as needed
         }
         function otkaziSvePrijave(checkbox) {
+            const token = localStorage.getItem('authToken'); // Retrieve the token from localStorage
             const row = checkbox.closest('tr'); // Get the closest parent <tr> element
             const email = row.querySelector('td:nth-child(5)').textContent.trim(); // Get the email from the fifth <td> element (index 4)
             const dataToSend = {
@@ -653,10 +674,11 @@
             };
             if (email) {
                 //fetch
-                fetch('/drivers', {
+                fetch('/api/admin/drivers', {
                     method: 'DELETE',
                     headers: {
-                        'Content-Type': 'application/json'
+                        'Content-Type': 'application/json',
+                        'Authorization': `Bearer ${token}` // Add the Authorization header with the token
                     },
                     body: JSON.stringify(dataToSend)
                 })
@@ -677,6 +699,7 @@
             }
         }
         function otkaziPrijavu(event) {
+            const token = localStorage.getItem('authToken'); // Retrieve the token from localStorage
             const row = event.target.closest('tr'); // Get the closest parent <tr> element
             const email = row.querySelector('td:nth-child(5)').textContent.trim(); // Get the email from the fifth <td> element (index 4)
             const dataToSend = {
@@ -684,10 +707,11 @@
             };
             if (email) {
                 //fetch
-                fetch('/drivers', {
+                fetch('/api/admin/drivers', {
                     method: 'DELETE',
                     headers: {
-                        'Content-Type': 'application/json'
+                        'Content-Type': 'application/json',
+                        'Authorization': `Bearer ${token}` // Add the Authorization header with the token
                     },
                     body: JSON.stringify(dataToSend)
                 })
@@ -722,6 +746,7 @@
             event.preventDefault();
 
             // Gather form data
+            const token = localStorage.getItem('authToken'); // Retrieve the token from localStorage
             const formData = new FormData(event.target);
             const formEntries = Object.fromEntries(formData.entries());
             const jsonData = JSON.stringify(formEntries);
@@ -729,10 +754,11 @@
             console.log('Form Data:', formEntries);
 
             // Submit form using fetch API with JSON data
-            fetch('/drivers', {
+            fetch('/api/admin/drivers', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',
+                    'Authorization': `Bearer ${token}` // Add the Authorization header with the token
                 },
                 body: jsonData
             })
@@ -751,15 +777,9 @@
 
 
         function logout() {
-            fetch('/logout', {
-                method: 'DELETE'
-            })
-                .then(response => {
-                    window.location.href = response.url;
-                })
-                .catch((err) => {
-                    showError(err);
-                })
+            localStorage.removeItem('authToken');
+            localStorage.removeItem('registrations');
+            window.location.href = '/api/admin/';
         }
 
 
