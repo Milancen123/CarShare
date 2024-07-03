@@ -1,6 +1,9 @@
 const pool2 = require("../models/databaseAdmin");
 const pool = require("../models/database");
 const {passwordHash} = require('../utils/hashPassword');
+
+
+
 exports.renderHome = (req,res, next) => {
     console.log("DALI SAM USAO OVDE");
     res.render('home');

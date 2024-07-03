@@ -1,5 +1,5 @@
 const express = require('express');
-const {getPrivateData, getRides, getRideById, reserveRide, checkReservation, getPassengersByRideId, cancelRide, getRidesByPassengerID} = require('../controlers/private');
+const {getPrivateData, getRides, getRideById, reserveRide, checkReservation, getPassengersByRideId, cancelRide, getRidesByPassengerID, getUserData, updateUserData} = require('../controlers/private');
 const {protect} = require('../middleware/auth')
 
 
@@ -21,5 +21,9 @@ router.post('/cancelRide/:ride_id', protect, cancelRide);
 
 router.get('/getRidesByPassengerID', protect, getRidesByPassengerID);
 
+//da dobijes podatke o korisniku
+router.get('/user', protect, getUserData);
+
+router.put('/user', protect, updateUserData);
 
 module.exports = router;

@@ -5,8 +5,8 @@ const { register, login, forgotpassword, resetpassword, loginAdmin } = require('
 
 router.post('/register', register);
 router.post('/login', login);
-router.post('/forgotpassword', forgotpassword);
-router.post('/resetpassword/:resettoken', resetpassword);
+// router.post('/forgotpassword', forgotpassword);
+// router.post('/resetpassword/:resettoken', resetpassword);
 
 router.post('/login_admin', loginAdmin);
 

@@ -21,6 +21,7 @@ app.use((req, res, next) => {
     next();
 });
 
+
 app.use('/api/auth', require('./routes/auth'));
 app.use('/api/private', require('./routes/private'));
 app.use('/api/admin', require('./routes/admin'));
