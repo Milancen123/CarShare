@@ -3,8 +3,26 @@ const pool2 = require('../models/databaseAdmin');
 const ErrorResponse = require('../utils/errorResponse');
 const jwt = require('jsonwebtoken');
 
-
 const { passwordHash, comparePassword } = require('../utils/hashPassword');
+
+
+
+
+exports.registerDriver = async (req,res, next) => {
+  console.log("OVDE SAM SAD");
+  const {first_name,last_name,email,password,car_model,car_image,bank_acc,plate_number} = req.body;
+  try{
+    const response = await pool.query('INSERT INTO registrations (first_name, last_name, car_model, bank_acc, plate_number, email, password) VALUES ($1, $2, $3, $4, $5, $6, $7)',
+      [first_name,last_name,car_model, bank_acc,plate_number,email,password]
+    );
+    res.status(200).json({
+      success:true,
+    });
+  }catch(err){
+    console.log(err);
+  }
+}
+
 
 // Ensure you have these functions defined in your controllers file
 exports.register = async (req, res, next) => {
@@ -14,7 +32,9 @@ exports.register = async (req, res, next) => {
     const hash = await passwordHash(password, saltRounds);
     const response = await pool.query('INSERT INTO passenger (first_name, last_name, email, password) VALUES ($1, $2, $3, $4) RETURNING *', [first_name, last_name, email, hash]);
     const user = response.rows[0];
-    sendToken(user, 201, res);
+    res.status(200).json({
+      success:true,
+    });
 
   } catch (err) {
     next(err);
