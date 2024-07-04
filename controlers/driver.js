@@ -130,3 +130,41 @@ exports.updateRide = async (req,res,next) => {
 
     }
 }
+
+
+
+
+exports.getUserData = async(req,res,next) => {
+    try{
+        console.log("UZEO SAM PODATKE O USERU");
+        const response = await pool.query("SELECT first_name, last_name, email FROM driver WHERE id = $1", [parseInt(req.user.id)]);
+        res.status(200).json({
+            success: true,
+            data: response.rows[0]
+        });
+
+    }catch(err){
+        next(err);
+    }
+}
+
+
+exports.updateUserData = async (req,res,next) => {
+    console.log("A SAD OVDE");
+    console.log(req.body);
+    const {first_name, last_name, password} = req.body;
+    try{
+        //hash password
+        const hash = passwordHash(password, 10);
+        const response = await pool.query('UPDATE driver SET first_name = $1, last_name = $2, password = $3 WHERE id = $4 RETURNING *', 
+            [first_name, last_name, hash, parseInt(req.user.id)]
+        );
+        if(!!response.rows[0]){
+            res.status(200).json({
+                success: true
+            });
+        }
+    }catch(err){
+        next(err);
+    }
+}
